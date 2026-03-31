@@ -1,0 +1,7 @@
+interface:
+  display_name: "Xunxiashi"
+  short_description: "Train a forgetful OpenClaw shrimp into a usable work partner"
+  default_prompt: "Use $xunxiashi to build, retrain, repair, or maintain an OpenClaw shrimp workspace."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,10 @@
+{
+  "agents": {
+    "defaults": {
+      "skipBootstrap": false,
+      "memorySearch": {
+        "enabled": true
+      }
+    }
+  }
+}
