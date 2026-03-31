@@ -1,6 +1,6 @@
 # Xunxiashi File Mapping
 
-This is the internal routing map from user answers to real OpenClaw files.
+This is the internal routing map from the 20 build questions and 5 post-build prompts into real OpenClaw files.
 
 ## Source Of Truth
 
@@ -10,45 +10,41 @@ Important behavior must end in real files, not only in:
 - temporary summaries
 - verbal promises
 
-## File Responsibility Map
+## Build Question Mapping
 
-| File | Main responsibility | Typical inputs |
-| --- | --- | --- |
-| `openclaw.json` | safety and execution defaults | who the shrimp serves, what needs confirmation, high-risk policy |
-| `USER.md` | user background and work context | preferred name, role, daily work, jargon, stable personal defaults |
-| `IDENTITY.md` | outer speaking style | companion feel, tone, reply density, disliked wording |
-| `SOUL.md` | inner temperament and boundaries | uncertainty handling, mistake style, hard no-go zones, interesting inner spirit |
-| `AGENTS.md` | task protocol and delivery structure | first step, middle checkpoint, final check, delivery shape, ask-first boundary |
-| `TOOLS.md` | source and tool-use preference | search-first vs ask-first, trusted sources, avoided sources, proof-of-write style |
-| `HEARTBEAT.md` | proactive and recovery behavior | startup notice style, `/new` recovery style, rule promotion style, too-proactive line |
-| `MEMORY.md` | durable knowledge and long-term defaults | stable preferences, durable facts, cross-session rules |
-| `memory/YYYY-MM-DD.md` | daily and short-term context | fresh notes, unresolved follow-ups, recent working context, recovery summaries |
-| `checklists/*.md` | recurring operational flows | stable step sequences repeated often enough to become SOP-like |
-
-## Question To File Map
-
-### Stage 1
+### A. Let The Shrimp Understand You
 
 | Questions | Usually write to | Meaning |
 | --- | --- | --- |
-| Q1-Q3 | `USER.md` | who the user is and what the shrimp mainly helps with |
-| Q4-Q6 | `openclaw.json` | access, approval, and high-risk defaults |
-| Q7-Q9 | `SOUL.md` | boundaries, uncertainty handling, inner companion style |
-| Q10 | `IDENTITY.md` | hated tone, wording, or visible reply feel |
+| Q1-Q5 | `USER.md` | user identity, basic profile, role, needs, and work context |
 
-### Stage 2
+### B. What Kind Of Shrimp Life I Will Have
 
 | Questions | Usually write to | Meaning |
 | --- | --- | --- |
-| Q11-Q13 | `USER.md` | daily work shape, burden, domain shorthand |
-| Q14-Q20 | `AGENTS.md` | task order, checkpoints, final checks, delivery rules, ask-first boundaries |
+| Q6-Q10 | `IDENTITY.md` and `SOUL.md` | shrimp persona, companion style, visible tone, mistake style, disliked tone |
 
-### Stage 3
+### C. How I Should Work
 
 | Questions | Usually write to | Meaning |
 | --- | --- | --- |
-| Q21-Q26 | `TOOLS.md` | search behavior, source trust, memory read/write preference, proof-of-save |
-| Q27-Q30 | `HEARTBEAT.md` | restart notice style, `/new` recovery style, rule promotion, proactivity ceiling |
+| Q11-Q15 | `AGENTS.md` | first step, ambiguity handling, sync style, obstacle handling, delivery format |
+
+### D. How Much Authority I Have
+
+| Questions | Usually write to | Meaning |
+| --- | --- | --- |
+| Q16-Q20 | `openclaw.json`, `TOOLS.md`, `SOUL.md` | file permissions, critical config permissions, skill-install judgment, confirmation gates, secrecy boundaries |
+
+## Post-Build Follow-Up Mapping
+
+| Item | Usually write to | Meaning |
+| --- | --- | --- |
+| Follow-Up 1 | `MEMORY.md`, `AGENTS.md` | write-before-remember discipline |
+| Follow-Up 2 | `AGENTS.md`, `TOOLS.md` | file/link intake must ask whether to learn |
+| Follow-Up 3 | `HEARTBEAT.md`, `BOOT.md`, hook config | startup recovery with `boot-md` |
+| Follow-Up 4 | `HEARTBEAT.md`, daily memory, hook config | `/new` recovery with `session-memory` |
+| Follow-Up 5 | `HEARTBEAT.md`, cron or heartbeat config | daily workspace inspection and evolution |
 
 ## Memory Routing Rules
 
@@ -56,20 +52,20 @@ Important behavior must end in real files, not only in:
 
 - the information is new
 - the user just said it
-- the information may still evolve
 - it mainly supports short-term continuity
+- it may still evolve
 
 ### Write To Durable Memory When
 
-- the same fact or preference appears repeatedly
+- the same preference appears repeatedly
 - the rule is clearly long-term
-- the information should survive restarts and many future sessions
+- the information should survive restarts and future sessions
 
 ### Upgrade To Primary Rule Files When
 
-- the information changes the shrimp's default behavior
+- the information changes default behavior
 - the information affects safety
-- the information affects protocol, tone, or user-facing defaults
+- the information affects protocol, tone, or tool-use defaults
 
 ## "Remembered" Claim Rule
 
@@ -87,30 +83,12 @@ unless at least one of these is already true:
 
 If writing fails, say so directly and state what did not persist.
 
-## Rebuild Mapping Rules
+## Resume State Requirements
 
-`叠加`
+To support interruption and resume, state tracking must remember:
 
-- prefer merge, annotate, preserve, append
-- use when the old brain still contains useful signal
-
-`覆盖`
-
-- rebuild from the new source of truth
-- replace conflicting rules
-- keep a pre-rebuild snapshot summary for reference
-
-User-facing choice labels may be localized.
-In Chinese, use `叠加` and `覆盖`.
-Internally they may map to `merge` and `replace`.
-
-## Maintenance Mapping Rules
-
-In maintenance mode:
-
-- merge duplicate rules in `AGENTS.md`, `SOUL.md`, and `TOOLS.md`
-- remove or demote stale preferences
-- distill daily memory into `MEMORY.md`
-- promote repeated operational patterns into `checklists/*.md`
-
-Always summarize major maintenance effects before applying them.
+- selected mode: `叠加` or `覆盖`
+- last completed build question
+- last completed follow-up prompt
+- files already written
+- whether the sequence is in `build_brain`, `post_build_config`, `train_brain`, or `maintain_brain`

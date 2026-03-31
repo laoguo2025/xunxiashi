@@ -20,7 +20,7 @@ Rules:
 
 Do not:
 
-- ask all 30 questions
+- ask all build questions at once
 - explain OpenClaw internals
 - overload the user with choices
 

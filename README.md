@@ -2,7 +2,7 @@
 
 `Xunxiashi` means `训虾师`.
 
-An OpenClaw skill package for novice IM-first users who want to turn a forgetful shrimp into a usable work partner.
+An OpenClaw skill for novice IM-first users who want a shrimp that is safer, more stable, and actually useful.
 
 Current version: `v0.1.0`
 
@@ -12,225 +12,199 @@ Repository: [github.com/laoguo2025/xunxiashi](https://github.com/laoguo2025/xunx
 
 ## 中文
 
-### 你是不是正卡在这里
+### 你是不是也遇到过这些问题
 
-很多人装完 OpenClaw 之后，真实体验是这样的：
+很多人装完 OpenClaw 之后，真实感受是：
 
-1. 接上飞书、微信、钉钉、企微、Telegram。
-2. 开始聊天，觉得这只虾能聊，但不够会干活。
-3. 你刚教过它，它嘴上说记住了，过一会儿又忘了。
-4. 聊久了以后，越来越乱，越来越笨，越来越像在重复劳动。
+- 能聊天，但不太会干活
+- 刚教过，转头就忘
+- 嘴上说“记住了”，其实没有真的写进去
+- 用久了以后越来越乱，越来越笨
+- skill 越装越多，但不知道哪些真的有用
 
-`Xunxiashi` 就是为这个场景做的。
+`Xunxiashi` 就是专门解决这类问题的。
 
-它不是一个普通 prompt，也不是只会聊天的“人设包”。
-它的目标，是把你在真实使用中的习惯、纠错、流程和边界，逐步沉淀成 OpenClaw 真正会读取的 workspace 文件。
+它不是普通 prompt，也不是单纯的人设包。  
+它更像一个“训虾师”，帮你把这只虾从“能聊”养成“能干活、能记住、能长期稳定使用”。
 
-### 它怎么解决
+### 它能帮你解决什么
 
-`Xunxiashi` 不是一把梭地丢给你一长串问卷，而是三步走：
+#### 1. 先把脑子装好
 
-#### 第一步：建脑
+它会先带你完成一次傻瓜式建脑，让这只虾先知道：
 
-作用：
+- 你是谁
+- 它该怎么称呼你
+- 它应该怎么说话
+- 它该怎么干活
+- 哪些事不能乱做
 
-- 先把这只虾的基础脑子装起来
-- 明确它是谁、你是谁、什么事不能乱做
-- 先得到一个“能用、能聊、能干活”的初版
+你不用懂 `json`、不用懂 hook、也不用懂 OpenClaw 内部结构。
 
-结果：
+#### 2. 再把习惯训进去
 
-- 有基础人格
-- 有基本安全边界
-- 有默认干活方式
+后面你正常使用、正常纠错、正常投喂资料就行。  
+`Xunxiashi` 会把这些东西逐步变成真实规则，而不是只停留在聊天记录里。
 
-#### 第二步：训脑
+#### 3. 最后让它越养越稳
 
-作用：
+它还会帮你把“越用越乱、越用越失忆”的问题压下去，比如：
 
-- 在真实使用里边聊边训
-- 把“以后都按这个来”“记住这个”“别再这么说”这种反馈变成真实规则
-- 不再只是口头承诺
+- 记忆蒸馏
+- 规则去重
+- 跨会话恢复
+- 定时体检和维护
 
-结果：
+### 为什么对小白友好
 
-- 你的习惯会慢慢沉淀进规则文件和记忆
-- 重复纠错会越来越少
-- 这只虾会越来越像你的工作搭子
+- 默认按聊天方式一步步引导，不需要你自己研究配置文件
+- 安装后就能开始，不需要先搞懂一堆术语
+- 会优先考虑安全边界，不让它乱碰关键内容
+- 不要求你一上来就学会 OpenClaw 的各种内部机制
 
-#### 第三步：养脑
+### 安全上做了什么
 
-作用：
+`Xunxiashi` 的默认思路是：
 
-- 定期整理 workspace
-- 合并重复规则
-- 蒸馏 daily memory
-- 修补“越养越乱、越养越失忆”的问题
+- 高风险操作优先确认
+- 不能随便改关键文件
+- 不能随便向外泄露敏感信息
+- 不能口头承诺“记住了”却不落盘
+- 如果要重建脑子，必须先告诉你后果，并让你选择 `叠加` 或 `覆盖`
 
-结果：
+也就是说，它追求的不是“更放飞”，而是“更稳、更可控”。
 
-- 更稳
-- 更清晰
-- 更容易跨会话恢复
-- 不容易聊久了就跑偏
+### 使用起来是什么感觉
 
-### 它适合谁
+你不需要一开始就懂很多。  
+更像是：
 
-- 刚装完 OpenClaw 的小白用户
-- 已经接好 IM，但感觉虾不够聪明的人
-- 想把 OpenClaw 从“会聊天”养成“会干活”的人
-- 想减少“说记住了，其实没写进去”的人
-- 想让 agent 既有边界，又有个性的人
+1. 安装 skill
+2. 跟着提示完成初始建脑
+3. 后面正常聊天、正常使用、正常投喂资料
+4. 让它边用边学，边用边养
 
-### 这个仓库里有什么
+如果中途被打断，它也应该知道从哪里继续，而不是每次都从头再来。
 
-- [Xunxiashi/SKILL.md](Xunxiashi/SKILL.md)
-  主 skill 规则
-- [Xunxiashi/references/question-set.md](Xunxiashi/references/question-set.md)
-  终版 30 题
-- [Xunxiashi/references/file-mapping.md](Xunxiashi/references/file-mapping.md)
-  问题到文件的映射速查
-- [Xunxiashi/references/hooks-setup.md](Xunxiashi/references/hooks-setup.md)
-  `/new` 恢复、重启恢复等 hook 接线说明
-- [Xunxiashi/assets/templates/](Xunxiashi/assets/templates/)
-  workspace 模板
-- [docs/examples/xunxiashi-vertical-short-drama/](docs/examples/xunxiashi-vertical-short-drama/)
-  一个“竖屏短剧编剧”的完整示例
+### 你大概会得到什么效果
 
-### 推荐阅读顺序
+- 回答方式更像你要的风格
+- 干活流程更贴近你的习惯
+- 重要偏好不容易反复重教
+- skill 安装更克制，不容易乱装一堆没必要的东西
+- 长期使用后，workspace 更稳定，不容易越养越笨
 
-1. [README.md](README.md)
-2. [SKILL.md](Xunxiashi/SKILL.md)
-3. [question-set.md](Xunxiashi/references/question-set.md)
-4. [file-mapping.md](Xunxiashi/references/file-mapping.md)
-5. [docs/examples/xunxiashi-vertical-short-drama/README.md](docs/examples/xunxiashi-vertical-short-drama/README.md)
+### 适合谁
 
-### 技术说明
+- 刚装完 OpenClaw 的用户
+- 已经接好飞书、微信、钉钉、企微、Telegram 等 IM 渠道的用户
+- 想把 OpenClaw 从“会聊天”养成“会干活”的用户
+- 想减少假记忆、乱安装、乱漂移问题的用户
 
-- `Xunxiashi` 是单 skill，不拆成多个 skill。
-- 默认支持三阶段：建脑 / 训脑 / 养脑。
-- `BOOTSTRAP.md` 不在时，不假装重跑官方首次 bootstrap，而是进入“重新建脑”。
-- 重新建脑前必须先告知后果，再让用户选择 `叠加` 或 `覆盖`。
-- `/new` 恢复、网关重启恢复、写入后再说“记住了”是默认产品行为。
-- 其中恢复相关行为，仍然需要按 OpenClaw 官方机制接 `boot-md` 和 `session-memory` hook。
-- skill 默认跟随用户语言，不限制中文；仓库文档至少保持中英双语。
+### 简单技术说明
 
-### 当前状态
-
-当前版本是 `v0.1.0`。
-
-它已经是一个可安装、可阅读、可演示、可继续扩展的 skill 包。
-但它仍然更接近“高质量设计包 + 首版实现”，还不是经过大规模真实生产验证的成熟成品。
+- `Xunxiashi` 是一个单 skill，不拆成多个 skill
+- 它围绕三个方向工作：建脑、训脑、养脑
+- 恢复相关能力会依赖 OpenClaw 官方机制，例如 `boot-md` 和 `session-memory`
+- skill 默认支持多语言，会尽量跟随用户当前语言
+- 当前仓库是 `v0.1.0`，已经可以安装、测试、继续演进
 
 ---
 
 ## English
 
-### The Pain This Tries To Fix
+### Common Pain After Installing OpenClaw
 
-For many users, the real OpenClaw experience looks like this:
+Many users end up with the same experience:
 
-1. Connect Feishu, WeChat, DingTalk, WeCom, or Telegram.
-2. Start chatting.
-3. Realize the shrimp can talk, but cannot really work well.
-4. Teach it something once, hear "I remembered that", then watch it forget.
-5. Keep using it for a while, then feel the workspace getting noisier, dumber, and harder to trust.
+- the shrimp can chat, but cannot really work well
+- you teach it something once, then it forgets
+- it says "I remembered that" without really saving it
+- the longer you use it, the noisier and less reliable it becomes
+- you install more and more skills without knowing which ones are actually worth keeping
 
-`Xunxiashi` is built for exactly that situation.
+`Xunxiashi` is built for exactly this situation.
 
-It is not just a prompt pack and not just a personality wrapper.
-Its job is to turn repeated feedback, habits, workflows, and boundaries into real OpenClaw workspace files.
+It is not just a prompt pack and not just a personality wrapper.  
+It acts more like a shrimp trainer that helps turn OpenClaw from "can talk" into "can work, can remember, and can stay stable over time".
 
-### The Three-Step Solution
+### What It Helps With
 
-#### Step 1: Build the Brain
+#### 1. Build a usable brain first
 
-What it does:
+It guides the user through a beginner-friendly setup so the shrimp can first understand:
 
-- gives the shrimp a first usable brain
-- defines who it is, who you are, and what it must never do casually
-- creates a first version that is usable for real work
+- who the user is
+- how to address them
+- how to talk
+- how to work
+- what not to do casually
 
-What you get:
+The user does not need to understand `json`, hooks, or internal OpenClaw structure.
 
-- a basic personality
-- basic safety boundaries
-- a default working style
+#### 2. Turn habits into real defaults
 
-#### Step 2: Train the Brain
+After that, the user can just work normally, correct normally, and feed materials normally.  
+`Xunxiashi` is designed to turn those repeated signals into real rules instead of leaving them as chat-only promises.
 
-What it does:
+#### 3. Keep the shrimp stable over time
 
-- trains the shrimp during real usage
-- turns feedback like "remember this", "do it like this next time", and "stop saying it that way" into real rules
-- reduces empty verbal promises
+It also helps control the "more use, more drift" problem through:
 
-What you get:
+- memory distillation
+- rule deduplication
+- cross-session recovery
+- scheduled maintenance and review
 
-- repeated preferences becoming real structure
+### Why It Is Beginner-Friendly
+
+- it guides through chat instead of forcing users to study config files first
+- it starts working right after installation
+- it prioritizes safety boundaries
+- it does not assume users understand OpenClaw internals
+
+### Safety Philosophy
+
+`Xunxiashi` defaults toward:
+
+- confirmation for high-risk actions
+- protection for critical files
+- no casual leakage of sensitive information
+- no fake "remembered" claims without a real write
+- explicit warning plus `叠加` / `覆盖` choice before rebuild
+
+It is designed to be more stable and more controllable, not more reckless.
+
+### What The Experience Should Feel Like
+
+The intended flow is simple:
+
+1. install the skill
+2. follow the initial brain-building guidance
+3. use the shrimp normally
+4. let it keep learning and stabilizing through real usage
+
+If the process is interrupted, it should continue from where it left off instead of restarting blindly.
+
+### Expected Outcome
+
+- replies feel closer to the user's preferred style
+- work behavior better matches real habits
 - fewer repeated corrections
-- a shrimp that feels more like your actual work partner
-
-#### Step 3: Maintain the Brain
-
-What it does:
-
-- cleans the workspace over time
-- merges duplicate rules
-- distills daily memory
-- repairs the "more use, more drift" problem
-
-What you get:
-
-- better stability
-- clearer memory
-- better cross-session recovery
-- less long-term drift
+- more disciplined skill installation
+- a more stable workspace over time
 
 ### Who This Is For
 
-- novice OpenClaw users
-- IM-first users who already connected channels but feel the shrimp is weak
-- users who want to turn OpenClaw from "can chat" into "can work"
-- users who want fewer fake memory claims
-- users who want an agent that is both safe and interesting
+- new OpenClaw users
+- IM-first users already connected to Feishu, WeChat, DingTalk, WeCom, Telegram, or similar channels
+- users who want OpenClaw to become a real work partner
+- users who want fewer fake memory, over-installation, and drift problems
 
-### What Is In This Repository
+### Short Technical Note
 
-- [Xunxiashi/SKILL.md](Xunxiashi/SKILL.md)
-  Main skill rules
-- [Xunxiashi/references/question-set.md](Xunxiashi/references/question-set.md)
-  Final 30-question set
-- [Xunxiashi/references/file-mapping.md](Xunxiashi/references/file-mapping.md)
-  Fast mapping from answers to files
-- [Xunxiashi/references/hooks-setup.md](Xunxiashi/references/hooks-setup.md)
-  Hook wiring notes for startup recovery and `/new`
-- [Xunxiashi/assets/templates/](Xunxiashi/assets/templates/)
-  Workspace templates
-- [docs/examples/xunxiashi-vertical-short-drama/](docs/examples/xunxiashi-vertical-short-drama/)
-  A full vertical short drama writer example
-
-### Recommended Reading Order
-
-1. [README.md](README.md)
-2. [SKILL.md](Xunxiashi/SKILL.md)
-3. [question-set.md](Xunxiashi/references/question-set.md)
-4. [file-mapping.md](Xunxiashi/references/file-mapping.md)
-5. [docs/examples/xunxiashi-vertical-short-drama/README.md](docs/examples/xunxiashi-vertical-short-drama/README.md)
-
-### Technical Notes
-
-- `Xunxiashi` is one skill, not many separate skills.
-- It is built around three stages: build / train / maintain.
-- If `BOOTSTRAP.md` is gone, it does not pretend to replay official first-run bootstrap. It enters rebuild mode.
-- Rebuild must warn first, then ask the user to choose `叠加` or `覆盖`.
-- `/new` recovery, startup recovery, and write-before-remember are default product behaviors.
-- Recovery-related behavior still needs official OpenClaw hook wiring through `boot-md` and `session-memory`.
-- The skill follows the user's working language by default and the repository keeps bilingual documentation.
-
-### Current Status
-
-Current version: `v0.1.0`
-
-This repository is already installable, reviewable, demoable, and extendable.
-It is still closer to a strong design package plus first implementation than to a heavily battle-tested production release.
+- `Xunxiashi` is one skill, not a bundle of separate skills
+- it works around three directions: build, train, and maintain the brain
+- recovery behavior relies on official OpenClaw mechanisms such as `boot-md` and `session-memory`
+- it supports multilingual interaction by default
+- current repository version is `v0.1.0`, ready for installation, testing, and iteration

@@ -53,14 +53,14 @@ Always think of the work as three stages:
 The user does not need to know the internal file mapping. They only need to understand:
 
 - first we build the brain
-- then we train the brain while using it
-- later we maintain the brain so it keeps working
+- then we train the brain with real material and corrections
+- later we maintain the brain with recovery and scheduled care
 
 ## Core Rules
 
 1. Never use OpenClaw jargon unless the user explicitly asks for internals.
-2. Never dump a giant questionnaire by default.
-3. Ask interactively in small groups unless the user explicitly asks for the full questionnaire.
+2. Install-time kickoff is mandatory for a fresh build.
+3. Build-brain uses the fixed 20-question sequence, asked interactively one at a time.
 4. Never say that something is remembered unless the write already succeeded.
 5. Never silently overwrite core behavior files.
 6. Safety defaults beat convenience defaults.
@@ -102,22 +102,21 @@ Primary outputs:
 - `IDENTITY.md`
 - `SOUL.md`
 - `AGENTS.md`
-- `TOOLS.md`
-- `HEARTBEAT.md`
 - a safety-first `openclaw.json` patch
 
 ### Stage 2: Train the Brain
 
 Use this stage when:
 
-- the agent can work but is incomplete
-- the user is doing real work and correcting behavior
+- build-brain is already complete
+- the user is doing real work
+- the user sends files, images, videos, or links for learning
 - the user says things like "remember this" or "do it like this next time"
-- some training questions are still unanswered
+- the user corrects tone, workflow, or defaults
 
 Goal:
 
-- convert repeated feedback into stable behavior
+- convert real material and repeated feedback into stable behavior
 
 Primary outputs:
 
@@ -135,6 +134,7 @@ Use this stage when:
 - memory is messy or bloated
 - the user repeatedly teaches the same thing
 - the user asks to organize, repair, slim down, or maintain the brain
+- a scheduled heartbeat or cron task runs
 
 Goal:
 
@@ -214,26 +214,60 @@ Valid outcomes:
 - written to a primary rule file
 - rejected with a reason
 
+## Mandatory Kickoff
+
+After install or first invocation in a fresh workspace, `Xunxiashi` must immediately send the build-brain kickoff prompt.
+
+That kickoff prompt must:
+
+1. ask whether to start building the brain now
+2. ask the user to choose `叠加` or `覆盖`
+3. explain the tradeoff in plain language
+
+Do not wait for the user to discover build mode on their own.
+
+## Build-Brain Sequence
+
+The build-brain questionnaire is a fixed 20-question intake defined in `references/question-set.md`.
+
+Rules:
+
+1. ask one question at a time
+2. keep the hints short
+3. record progress after every answer
+4. write stable answers into real files as soon as possible
+5. tell the user where something was written when the write matters
+
+After question 20:
+
+1. explicitly say build-brain is complete
+2. explicitly say the flow is now entering train-brain and maintain-brain setup
+3. immediately provide the 5 post-build configuration prompts
+4. require the user to send them one by one
+
 ## Interaction Style
 
 Default to interactive questioning.
 
-### Default questioning mode
+### Default build mode
 
-- ask 1 to 3 related questions at a time
-- after each answer cluster, summarize what you learned
-- write confirmed information immediately
-- stop early once a usable brain exists
+- ask one build question at a time
+- do not paste a long questionnaire wall
+- do not ask technical implementation questions
+- do not restart from question 1 after interruption unless the user explicitly asks to restart
 
-### Do not do this by default
+### Resume rule
 
-- do not paste all 30 questions into the chat at once
-- do not force the user to answer abstract personality questions
-- do not ask technical implementation questions like sandbox, cron, or model pricing
+If the flow is interrupted:
+
+- resume from the first unanswered build question
+- if build is done, resume from the first unfinished post-build prompt
+- explicitly tell the user which item comes next
+- explicitly tell the user what was already written
 
 ### Full questionnaire mode
 
-Only provide the full questionnaire when the user explicitly asks for:
+Only provide the whole build intake in one message when the user explicitly asks for:
 
 - the full questionnaire
 - a one-shot rebuild worksheet
@@ -245,12 +279,12 @@ Ask questions in user language, not implementation language.
 
 Prefer questions about:
 
+- user profile
+- companion feel
+- work habits
+- permissions
 - consequences
-- habits
 - boundaries
-- tone
-- repeated mistakes
-- repeated workflows
 
 Avoid questions about:
 
@@ -292,7 +326,9 @@ When shaping `SOUL.md`, capture:
 
 ## Training Discipline
 
-When the user teaches a repeated preference, convert it into structure.
+Train-brain is not another questionnaire.
+
+When the user sends real material or teaches a repeated preference, convert it into structure.
 
 Examples:
 
@@ -301,6 +337,7 @@ Examples:
 - repeated source preference -> `TOOLS.md`
 - repeated reminder preference -> `HEARTBEAT.md`
 - repeated fact or background context -> `MEMORY.md`
+- files, images, videos, or links -> ask whether they should be learned for future evolution
 
 If the same correction appears multiple times, offer to promote it into a default rule.
 
@@ -313,6 +350,7 @@ During maintenance mode, do the following:
 - distill daily memory into durable memory
 - extract recurring flows into checklists
 - preserve safety before cleanup
+- run scheduled brain-care tasks through heartbeat or cron when configured
 
 When proposing large changes, summarize the effect before writing.
 
@@ -329,6 +367,8 @@ Recognize and route intents like:
 - organize the brain
 - maintain the brain
 - repair the brain
+- continue from question 12
+- continue the post-build setup
 
 ## Safety
 
